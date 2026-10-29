@@ -85,3 +85,9 @@ The 2 images each are linked on `case-feedback.html` and `case-orders.html` via 
 
 ## Home and About refresh, 2026
 Concrete resume-first positioning, bilingual copy, verified GPA and TVRI experience, evidence-based project previews using authentic redacted screenshots, plus direct navigation to GitHub/LinkedIn, case studies and credentials. No unverified customer metrics are claimed.
+
+## Search and job-application readiness — 2026-10-30
+- 11 HTML pages now carry unique titles/descriptions, OG/Twitter metadata and schema.org JSON-LD where relevant.
+- Sitemap refresh includes lastmod values; robots.txt already declares its location.
+- Resume project names link to their corresponding published case studies.
+- See `SEO_CHECKLIST.md` for manual search-console and social-sharing checks.
