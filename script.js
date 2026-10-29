@@ -176,6 +176,20 @@ translations.en.browseAllCertificates="Browse all 42 certificates";
 Object.assign(translations.id,{navIndex:"Beranda",navCertifications:"Sertifikasi"});Object.assign(translations.en,{navIndex:"Home",navCertifications:"Certificates"});
 Object.assign(translations.id,{caseLibraryTitle:"Studi kasus lengkap tersedia",caseLibraryDesc:"Buka setiap halaman proyek untuk melihat alur kerja, pengujian, dan contoh interaktif. Diagram ditandai sebagai ilustrasi konsep."});
 Object.assign(translations.en,{caseLibraryTitle:"Full case studies are available",caseLibraryDesc:"Explore workflow diagrams, test notes and interactive explanations on individual project pages. Diagrams are explicitly conceptual."});
+Object.assign(translations.id,{
+allEvidenceLabel:"BUKTI PENGUJIAN ASLI",
+allEvidenceTitle:'Galeri <span class="muted-heading">Make.com</span>',
+allEvidenceDesc:"Empat screenshot dari dua proyek otomasi. Klik gambar untuk memperbesar, atau buka studi kasus untuk membaca konteks pengujiannya.",
+allEvidenceNote:"Gambar merupakan bukti pengujian dan konfigurasi workflow, bukan klaim implementasi produksi pada klien berbayar.",
+allEvidenceImage1:"Eksekusi Make AI Toolkit",allEvidenceImage2:"Pemetaan Google Sheets",allEvidenceImage3:"Pengujian rute pesanan valid",allEvidenceImage4:"Pengujian rute pesanan tidak valid",
+allEvidenceCaseLink:"Buka studi kasus ↗",allEvidenceOpenLink:"Perbesar gambar ↗"});
+Object.assign(translations.en,{
+allEvidenceLabel:"ORIGINAL TEST EVIDENCE",
+allEvidenceTitle:'Make.com <span class="muted-heading">gallery</span>',
+allEvidenceDesc:"Four original screenshots from two automation projects. Open an image to enlarge it or explore its case study for testing context.",
+allEvidenceNote:"Screenshots document workflow configuration and testing, not production deployments for paying clients.",
+allEvidenceImage1:"Make AI Toolkit execution",allEvidenceImage2:"Google Sheets mapping",allEvidenceImage3:"Valid order route test",allEvidenceImage4:"Invalid order route test",
+allEvidenceCaseLink:"View case study ↗",allEvidenceOpenLink:"Enlarge image ↗"});
 const caseStudies = {
   feedback: {
     id:{kicker:"AUTOMATION / 2026 / DEMO",title:"AI Customer Feedback Analyzer",summary:"Demo yang memperlihatkan bagaimana masukan pelanggan bisa dikumpulkan secara terstruktur lalu diteruskan ke alur pengelolaan hasil analisis.",challenge:"Umpan balik pelanggan sering tersebar dan memerlukan rekap manual sebelum dapat ditindaklanjuti.",solution:"Merancang alur dari Google Forms ke Make.com dan Google Sheets; menyiapkan tampilan, pengujian, dan demonstrasi workflow untuk calon klien.",outcome:"Tahap demo: alur dan hasil uji telah disiapkan. Belum diklaim sebagai sistem produksi klien."},
