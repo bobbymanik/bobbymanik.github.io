@@ -53,3 +53,23 @@ Dedicated pages: index.html, about.html, projects.html, experience.html, service
 - `case-study.js` and `case-study.css`: shared localized visualizations and accessible interactive panels.
 - All diagrams are conceptual reconstructions. Screenshots and business data remain unpublished until reviewed and approved.
 - `data/projects.js` remains the central project source. Each featured project now declares a `caseUrl`; newly added projects without a verified case page retain the existing quick-view modal.
+
+## Real Make.com screenshots: prepared assets
+
+Four sanitized screenshots from the user's existing ChatGPT Library have been reviewed and prepared:
+- `feedback_make_ai_test.webp`: actual Make AI Toolkit summarization run (non-essential execution metadata cropped)
+- `feedback_google_sheets_mapping.webp`: Make.com Google Sheets field mapping
+- `orders_valid_route.webp`: Gmail notification route completed
+- `orders_invalid_route.webp`: the filter rejected an invalid order on the email route
+
+**Publication status:** The original files are not currently present in GitHub because binary upload was not available through the connected file workflow. Do not say they are live. A ZIP of the four sanitized WEBP files was produced for manual upload.
+
+To publish:
+1. Upload those four WEBP files into `assets/evidence/` in this repository via GitHub's **Add file -> Upload files**.
+2. The case-study gallery will automatically display only the files that actually load.
+3. If a file cannot load, its card remains hidden instead of displaying a broken image.
+4. Do not publish original screenshots containing Make.com run IDs, spreadsheet IDs, phone numbers, real customer data or private account details.
+
+Data mappings: `data/projects.js` includes an `evidenceMedia` array for each of two Make.com projects. Internal TVRI screenshots remain intentionally unpublished.
+
+The order test matrix describes recorded test cases, not measured production reliability.

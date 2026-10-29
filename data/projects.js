@@ -1,4 +1,4 @@
-/* Source-of-truth: projects featured on the public portfolio. Update evidence and URLs only after verification. */
+/* Portfolio project data: update after verified evidence is published. */
 window.PORTFOLIO_PROJECTS = [
   {
     "id": "feedback",
@@ -45,7 +45,32 @@ window.PORTFOLIO_PROJECTS = [
       "id": "Tersedia tampilan Google Forms, workflow Make.com, rekap Google Sheets, dan riwayat pengujian sukses. Materi belum dibagikan sebagai tautan publik.",
       "en": "Google Forms screens, Make.com workflow, Google Sheets output, and successful test history. Evidence is not yet linked publicly."
     },
-    "caseUrl": "case-feedback.html"
+    "caseUrl": "case-feedback.html",
+    "evidenceMedia": [
+      {
+        "src": "assets/evidence/feedback_make_ai_test.webp",
+        "title": {
+          "id": "Eksekusi Make AI Toolkit",
+          "en": "Make AI Toolkit execution"
+        },
+        "description": {
+          "id": "Screenshot hasil pengujian proses peringkasan teks melalui Make.com.",
+          "en": "Original screenshot from a Make.com summarization test."
+        }
+      },
+      {
+        "src": "assets/evidence/feedback_google_sheets_mapping.webp",
+        "title": {
+          "id": "Pemetaan hasil ke Google Sheets",
+          "en": "Google Sheets field mapping"
+        },
+        "description": {
+          "id": "Screenshot konfigurasi field sentimen, ringkasan, dan prioritas tindak lanjut.",
+          "en": "Original mapping screenshot for sentiment, summaries and follow-up priority."
+        }
+      }
+    ],
+    "evidencePublishStatus": "pending_upload"
   },
   {
     "id": "orders",
@@ -92,7 +117,32 @@ window.PORTFOLIO_PROJECTS = [
       "id": "Skenario diuji menggunakan jumlah valid serta contoh 0, negatif, desimal, dan teks. Rute email dan pencatatan input tidak valid berhasil dijalankan.",
       "en": "Tested with valid quantities and zero, negative, decimal, and text inputs. Email notifications and invalid-order logging executed as intended."
     },
-    "caseUrl": "case-orders.html"
+    "caseUrl": "case-orders.html",
+    "evidenceMedia": [
+      {
+        "src": "assets/evidence/orders_valid_route.webp",
+        "title": {
+          "id": "Rute valid — Gmail berhasil",
+          "en": "Valid route — Gmail completed"
+        },
+        "description": {
+          "id": "Screenshot riwayat skenario dengan jalur Gmail berhasil dijalankan.",
+          "en": "Original run screenshot showing the Gmail route completed."
+        }
+      },
+      {
+        "src": "assets/evidence/orders_invalid_route.webp",
+        "title": {
+          "id": "Rute invalid — tidak melewati filter",
+          "en": "Invalid route — stopped by filter"
+        },
+        "description": {
+          "id": "Screenshot riwayat skenario yang menunjukkan input tidak valid tidak melanjutkan rute email.",
+          "en": "Original run screenshot showing invalid input did not proceed to the email route."
+        }
+      }
+    ],
+    "evidencePublishStatus": "pending_upload"
   },
   {
     "id": "transmission",
