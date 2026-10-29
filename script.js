@@ -247,7 +247,7 @@ function renderProjects(){
     const article=document.createElement('article');article.className='project-card';article.dataset.category=project.category === 'web'?'web':'automation';
     article.hidden=currentFilter!=='all' && article.dataset.category!==currentFilter;
     const art=document.createElement('div');art.className='project-art art-custom';
-    if(project.image && (/^data:image\/(jpeg|png|webp);base64,/i.test(project.image) || /^https?:\/\//i.test(project.image))){
+    if(project.image && (/^data:image\/(jpeg|png|webp);base64,/i.test(project.image) || /^https?:\/\//i.test(project.image) || /^assets\/evidence\/[a-z0-9_-]+\.webp$/i.test(project.image))){
       art.className='project-art art-upload';const img=document.createElement('img');img.loading='lazy';img.alt='Gambar proyek: '+localized(project.title);img.src=project.image;art.appendChild(img);
       const mark=document.createElement('span');mark.className='art-image-label';mark.textContent='PROJECT / '+String(index+1).padStart(2,'0');art.appendChild(mark);
     } else if(oldArts[project.id]){

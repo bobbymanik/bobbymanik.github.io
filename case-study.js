@@ -19,7 +19,13 @@ const ORDER_TESTS=[
 function renderEvidenceMedia(project,key,lang){
 const grid=document.getElementById("media-gallery-grid"),empty=document.getElementById("media-gallery-empty"),count=document.getElementById("media-count");
 if(!grid||!empty||!count)return;
-grid.replaceChildren();let loaded=0;const images=(project.evidenceMedia||[]).filter(item=>/^assets\/evidence\/[a-z0-9_-]+\.webp$/i.test(item.src));
+const images=(project.evidenceMedia||[]).filter(item=>/^assets\/evidence\/[a-z0-9_-]+\.webp$/i.test(item.src));
+if(grid.dataset.staticGallery==="true"){
+count.textContent=images.length+" / "+images.length;empty.hidden=true;
+grid.querySelectorAll("figure").forEach((figure,i)=>{const item=images[i];if(!item)return;const title=item.title?.[lang]||item.title?.id||"Screenshot",description=item.description?.[lang]||item.description?.id||"";const img=figure.querySelector("img");if(img)img.alt=title+" — "+description;const head=figure.querySelector("figcaption strong");if(head)head.textContent=title;const desc=figure.querySelector("figcaption p");if(desc)desc.textContent=description;const label=figure.querySelector(".evidence-real-badge");if(label)label.textContent=lang==="en"?"ORIGINAL SCREENSHOT ↗":"SCREENSHOT ASLI ↗";});
+return;
+}
+grid.replaceChildren();let loaded=0;
 count.textContent="0 / "+String(images.length);empty.hidden=false;
 images.forEach(item=>{
 const figure=document.createElement("figure");figure.className="real-evidence-card";figure.hidden=true;

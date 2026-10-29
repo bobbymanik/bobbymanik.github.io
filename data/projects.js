@@ -33,7 +33,7 @@ window.PORTFOLIO_PROJECTS = [
       "Google Forms",
       "Google Sheets"
     ],
-    "image": "",
+    "image": "assets/evidence/feedback_make_ai_test.webp",
     "demoUrl": "",
     "githubUrl": "",
     "featured": true,
@@ -105,7 +105,7 @@ window.PORTFOLIO_PROJECTS = [
       "Google Sheets",
       "Gmail"
     ],
-    "image": "",
+    "image": "assets/evidence/orders_valid_route.webp",
     "demoUrl": "",
     "githubUrl": "",
     "featured": true,
