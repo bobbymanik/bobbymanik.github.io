@@ -34,3 +34,10 @@ The public portfolio highlights eight reviewed training/certificate items. The o
 - Coursera course links point to verification pages printed on the actual completion certificates.
 - DataCamp certificate opens an existing public Google Drive document.
 - Original TVRI/LAN certificates remain in the user's Drive and are **not** linked from the public portfolio.
+
+## Complete certificate catalogue
+- `certifications.html` contains a searchable/filterable directory of **42 certificate documents** from the supplied Google Drive folder.
+- `data/certifications.js` contains the complete source-backed entries and official links where available. `certifications.js` controls the public directory.
+- Coursera links use the issued individual-course verification codes. DataCamp and Dicoding open certificate PDFs; Dicoding 2023 certificates are marked expired in February 2026.
+- TVRI, LAN, IHT and Telkom sensitive identifiers use redacted public copies; original NIP/NIM and the CPNS QR remain outside this website.
+- Bangkit acceptance letter, OJK placement letter, training grades, internal documents and class notes are not misrepresented as certificates.

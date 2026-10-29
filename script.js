@@ -170,6 +170,9 @@ const certificateCopy = {
 Object.assign(translations.id,certificateCopy.id);
 Object.assign(translations.en,certificateCopy.en);
 
+translations.id.browseAllCertificates="Lihat semua 42 sertifikat";
+translations.en.browseAllCertificates="Browse all 42 certificates";
+
 const caseStudies = {
   feedback: {
     id:{kicker:"AUTOMATION / 2026 / DEMO",title:"AI Customer Feedback Analyzer",summary:"Demo yang memperlihatkan bagaimana masukan pelanggan bisa dikumpulkan secara terstruktur lalu diteruskan ke alur pengelolaan hasil analisis.",challenge:"Umpan balik pelanggan sering tersebar dan memerlukan rekap manual sebelum dapat ditindaklanjuti.",solution:"Merancang alur dari Google Forms ke Make.com dan Google Sheets; menyiapkan tampilan, pengujian, dan demonstrasi workflow untuk calon klien.",outcome:"Tahap demo: alur dan hasil uji telah disiapkan. Belum diklaim sebagai sistem produksi klien."},

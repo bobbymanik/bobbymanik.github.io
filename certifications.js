@@ -1,0 +1,31 @@
+"use strict";
+const items=Array.isArray(window.PORTFOLIO_CERTIFICATES)?window.PORTFOLIO_CERTIFICATES:[];
+const $=s=>document.querySelector(s);
+const groupLabels={id:{all:"Semua",work:"Pelatihan kerja",automation:"Automation",data:"Data",ai:"AI / ML",development:"Pemrograman",network:"Jaringan",internship:"Magang"},en:{all:"All",work:"Professional training",automation:"Automation",data:"Data",ai:"AI / ML",development:"Development",network:"Networking",internship:"Internship"}};
+const t={id:{back:"Kembali ke portofolio",title:'Sertifikasi & <span>Pengembangan Kompetensi</span>',subtitle:"Semua sertifikat dan bukti pelatihan yang tersimpan di folder sertifikat saya, dikelompokkan agar mudah ditemukan oleh rekruter.",metric1:"Sertifikat & bukti pelatihan",metric2:"Rentang dokumen",metric3:"Kategori kompetensi",catalogue:"Daftar sertifikat",archiveHeading:"Dokumen pendukung lainnya",archiveText:"Folder Google Drive juga menyimpan surat penerimaan Bangkit Academy, surat keterangan kegiatan OJK, lampiran nilai pelatihan, materi kelas dan dokumen administrasi. Dokumen tersebut tidak dihitung sebagai sertifikat kelulusan; sebagian tidak ditautkan untuk melindungi informasi pribadi.",privacy:"Bukti pelatihan TVRI/LAN dan sertifikat Telkom yang berisi pengenal pribadi ditampilkan dalam salinan yang disamarkan. Sertifikat Dicoding dari 2023 tercatat berakhir masa berlakunya pada Februari 2026; penyelesaian kelas tetap tercantum sebagai riwayat pembelajaran.",search:"Cari nama, penyelenggara, atau tahun...",found:"ditemukan",empty:"Tidak ada sertifikat yang sesuai.",copy:"Lihat salinan aman ↗",verify:"Verifikasi kursus ↗",view:"Lihat sertifikat ↗",expired:"Masa berlaku berakhir · Feb 2026",participation:"Sertifikat partisipasi",completed:"Selesai",passed:"Lulus · Memuaskan"},en:{back:"Back to portfolio",title:'Certifications & <span>Professional Development</span>',subtitle:"A complete archive of certificates and training evidence from my Drive folder, grouped for recruiters and clients.",metric1:"Certificates & training evidence",metric2:"Document period",metric3:"Competency areas",catalogue:"Certificate directory",archiveHeading:"Other supporting documents",archiveText:"The Drive folder also contains a Bangkit Academy acceptance letter, an OJK placement letter, training score sheets, course notes and administrative documents. These are not counted as course completion certificates; some are not linked to protect personal details.",privacy:"TVRI/LAN certificates and the Telkom internship certificate with personal identifiers are shown as redacted copies. Dicoding certificates from 2023 indicate expiry in February 2026, and are listed as historical course completion.",search:"Search by course, provider, or year...",found:"found",empty:"No matching certificates.",copy:"View redacted copy ↗",verify:"Verify course ↗",view:"View certificate ↗",expired:"Expired · Feb 2026",participation:"Participation",completed:"Completed",passed:"Passed · Satisfactory"}};
+let language="id",filter="all",searchTerm="";
+const normalize=x=>String(x||"").toLocaleLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+const make=(tag,cls,txt)=>{const x=document.createElement(tag);if(cls)x.className=cls;if(txt!==undefined)x.textContent=txt;return x;};
+function draw(){const out=$("#cert-grid");out.replaceChildren();const q=normalize(searchTerm);const showing=items.filter(x=>(filter==="all"||x.category===filter)&&normalize([x.name,x.provider,x.year,x.detail].join(" ")).includes(q));
+$("#cert-count").textContent=showing.length+" "+t[language].found;
+if(!showing.length){out.appendChild(make("p","cert-empty",t[language].empty));return;}
+showing.forEach(item=>{
+ const card=make("article","catalog-card");const head=make("div","catalog-card-head");head.append(make("span","",item.provider),make("time","",item.year));card.append(head,make("h3","",item.name),make("p","",item.detail));
+ const labels={completed:t[language].completed,participation:t[language].participation,passed:t[language].passed,expired:t[language].expired};
+ const meta=make("div","catalog-card-meta",labels[item.status]||t[language].completed);if(item.status==="expired")meta.dataset.expired="true";card.append(meta);
+ const a=make("a","",item.linkType==="verify"?t[language].verify:item.linkType==="redacted"?t[language].copy:t[language].view);
+ if(!/^https:\/\//.test(item.url)){return;}
+ a.href=item.url;a.target="_blank";a.rel="noopener noreferrer";a.setAttribute("aria-label",a.textContent+" — "+item.name);card.append(a);out.append(card);
+});}
+function setLang(next){language=next==="en"?"en":"id";document.documentElement.lang=language;$("#cert-lang").textContent=language==="id"?"EN":"ID";document.title=language==="id"?"Semua Sertifikat | Bobby Adithya Manik":"All Certificates | Bobby Adithya Manik";
+for(const node of document.querySelectorAll("[data-copy]")){const key=node.dataset.copy;if(Object.hasOwn(t[language],key)){if(key==="title")node.innerHTML=t[language][key];else node.textContent=t[language][key];}}
+$("#cert-search").placeholder=t[language].search;$("#cert-search").setAttribute("aria-label",t[language].search);
+for(const btn of document.querySelectorAll("[data-filter]")){btn.textContent=groupLabels[language][btn.dataset.filter];}
+draw();}
+document.addEventListener("DOMContentLoaded",()=>{
+$("#metric-total").textContent=String(items.length);$("#cert-year").textContent=String(new Date().getFullYear());
+const lang=(()=>{try{return localStorage.getItem("portfolioLocale")||(/^en/i.test(navigator.language)?"en":"id");}catch(e){return"id";}})();setLang(lang);
+$("#cert-lang").addEventListener("click",()=>{setLang(language==="id"?"en":"id");try{localStorage.setItem("portfolioLocale",language);}catch(e){}});
+$("#cert-search").addEventListener("input",e=>{searchTerm=e.target.value;draw();});
+$("#cert-filters").addEventListener("click",e=>{const btn=e.target.closest("[data-filter]");if(!btn)return;filter=btn.dataset.filter;for(const b of document.querySelectorAll("[data-filter]")){const yes=b===btn;b.classList.toggle("selected",yes);b.setAttribute("aria-pressed",String(yes));}draw();});
+});
