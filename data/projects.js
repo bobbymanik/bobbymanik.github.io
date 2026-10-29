@@ -42,8 +42,8 @@ window.PORTFOLIO_PROJECTS = [
       "en": "Designed the feedback form, Make.com workflow, Sheets summary structure, and demo walkthrough."
     },
     "evidence": {
-      "id": "Tersedia tampilan Google Forms, workflow Make.com, rekap Google Sheets, dan riwayat pengujian sukses. Materi belum dibagikan sebagai tautan publik.",
-      "en": "Google Forms screens, Make.com workflow, Google Sheets output, and successful test history. Evidence is not yet linked publicly."
+      "id": "Tersedia tampilan Google Forms, workflow Make.com, rekap Google Sheets, dan riwayat pengujian sukses. Dua screenshot pengujian Make.com dan pemetaan Google Sheets telah dipublikasikan sebagai bukti visual.",
+      "en": "Google Forms screens, Make.com workflow, Google Sheets output, and successful test history. Two original Make.com testing and Sheets field-mapping screenshots are now publicly available."
     },
     "caseUrl": "case-feedback.html",
     "evidenceMedia": [
@@ -70,7 +70,7 @@ window.PORTFOLIO_PROJECTS = [
         }
       }
     ],
-    "evidencePublishStatus": "pending_upload"
+    "evidencePublishStatus": "published"
   },
   {
     "id": "orders",
@@ -142,7 +142,7 @@ window.PORTFOLIO_PROJECTS = [
         }
       }
     ],
-    "evidencePublishStatus": "pending_upload"
+    "evidencePublishStatus": "published"
   },
   {
     "id": "transmission",

@@ -73,3 +73,12 @@ To publish:
 Data mappings: `data/projects.js` includes an `evidenceMedia` array for each of two Make.com projects. Internal TVRI screenshots remain intentionally unpublished.
 
 The order test matrix describes recorded test cases, not measured production reliability.
+
+## Public evidence status (October 2026)
+The following four **cropped, original** Make.com test screenshots have been committed to `assets/evidence/` on the public GitHub Pages branch:
+- `feedback_make_ai_test.webp`: Make AI Toolkit test execution.
+- `feedback_google_sheets_mapping.webp`: field mapping from feedback results into Google Sheets.
+- `orders_valid_route.webp`: valid order branch showing Gmail execution.
+- `orders_invalid_route.webp`: invalid order branch showing the filter/fallback path.
+
+The 2 images each are linked on `case-feedback.html` and `case-orders.html` via `data/projects.js`. Files are deliberately cropped to remove run IDs and unneeded personal/technical information. They document tests and demos only—not paid production deployments. Keep the original source screenshots private. Do not publicly upload raw client data, Sheets IDs, or execution IDs.
