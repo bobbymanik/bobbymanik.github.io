@@ -185,7 +185,8 @@ for (const path of pages) {
       const parsed = JSON.parse(code);
       assert(parsed['@context'] === 'https://schema.org', 'JSON-LD context invalid');
     }
-    const ogImage = await crawlPage.locator('meta[property="og:image"]').getAttribute('content').catch(() => null);
+    const ogLocator = crawlPage.locator('meta[property="og:image"]');
+    const ogImage = (await ogLocator.count()) ? await ogLocator.getAttribute('content') : null;
     if (ogImage) {
       const imgRes = await crawlContext.request.get(ogImage);
       assert.equal(imgRes.status(), 200, 'Open Graph image does not load: ' + ogImage);
