@@ -173,6 +173,7 @@ Object.assign(translations.en,certificateCopy.en);
 translations.id.browseAllCertificates="Lihat semua 42 sertifikat";
 translations.en.browseAllCertificates="Browse all 42 certificates";
 
+Object.assign(translations.id,{navIndex:"Beranda",navCertifications:"Sertifikasi"});Object.assign(translations.en,{navIndex:"Home",navCertifications:"Certificates"});
 const caseStudies = {
   feedback: {
     id:{kicker:"AUTOMATION / 2026 / DEMO",title:"AI Customer Feedback Analyzer",summary:"Demo yang memperlihatkan bagaimana masukan pelanggan bisa dikumpulkan secara terstruktur lalu diteruskan ke alur pengelolaan hasil analisis.",challenge:"Umpan balik pelanggan sering tersebar dan memerlukan rekap manual sebelum dapat ditindaklanjuti.",solution:"Merancang alur dari Google Forms ke Make.com dan Google Sheets; menyiapkan tampilan, pengujian, dan demonstrasi workflow untuk calon klien.",outcome:"Tahap demo: alur dan hasil uji telah disiapkan. Belum diklaim sebagai sistem produksi klien."},
@@ -196,7 +197,7 @@ const $ = (selector) => document.querySelector(selector);
 function setLanguage(nextLanguage){
   locale = nextLanguage === 'en' ? 'en' : 'id';
   document.documentElement.lang = locale;
-  document.title = locale === 'en' ? 'Bobby Adithya Manik — Automation & Web Portfolio' : 'Bobby Adithya Manik — Portofolio Automation & Web';
+  document.title = locale === 'en' ? (document.body.dataset.titleEn || document.title) : (document.body.dataset.titleId || document.title);
   for (const el of document.querySelectorAll('[data-i18n]')){
     const key = el.dataset.i18n;
     if (Object.prototype.hasOwnProperty.call(translations[locale],key)){
@@ -204,11 +205,11 @@ function setLanguage(nextLanguage){
       el.innerHTML = translations[locale][key];
     }
   }
-  $('#language-label').textContent = locale === 'id' ? 'EN' : 'ID';
-  $('#lang-switch').setAttribute('aria-label',locale === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia');
+  if ($('#language-label')) $('#language-label').textContent = locale === 'id' ? 'EN' : 'ID';
+  if ($('#lang-switch')) $('#lang-switch').setAttribute('aria-label',locale === 'id' ? 'Switch to English' : 'Ganti ke Bahasa Indonesia');
   renderProjects();
   const dialog = $('#case-dialog');
-  if (dialog.open && dialog.dataset.project) fillCaseStudy(dialog.dataset.project);
+  if (dialog && dialog.open && dialog.dataset.project) fillCaseStudy(dialog.dataset.project);
   try { localStorage.setItem('portfolioLocale',locale); } catch (_) {}
 }
 function fillCaseStudy(projectId){
@@ -297,29 +298,12 @@ async function copyEmail(){
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
-  let stored = /^en\b/i.test(navigator.language || '') ? 'en' : 'id';
-  try { stored = localStorage.getItem('portfolioLocale') || stored; } catch (_) {}
-  setLanguage(stored);
-  $('#current-year').textContent=String(new Date().getFullYear());
-  $('#lang-switch').addEventListener('click',()=>setLanguage(locale==='id'?'en':'id'));
-  $('.menu-toggle').addEventListener('click',()=>{
-    const opened=$('#nav-links').classList.toggle('is-open');
-    $('.menu-toggle').setAttribute('aria-expanded',String(opened));
-  });
-  $('#nav-links').querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
-    $('#nav-links').classList.remove('is-open');$('.menu-toggle').setAttribute('aria-expanded','false');
-  }));
-  document.querySelectorAll('[data-filter]').forEach(button=>button.addEventListener('click',()=>setFilter(button.dataset.filter)));
-  setFilter('all');
-  $('#projects-grid').addEventListener('click', e=>{
-    const button=e.target.closest('[data-project]'); if(!button) return;
-    const projectId=button.dataset.project;
-    $('#case-dialog').dataset.project=projectId;
-    fillCaseStudy(projectId);
-    $('#case-dialog').showModal();
-  });
-  $('#dialog-close').addEventListener('click',closeDialog);
-  $('#dialog-done').addEventListener('click',closeDialog);
-  $('#case-dialog').addEventListener('click',event=>{if(event.target===$('#case-dialog'))closeDialog();});
-  $('#copy-email').addEventListener('click',copyEmail);
+let stored=/^en\b/i.test(navigator.language||'')?'en':'id';try{stored=localStorage.getItem('portfolioLocale')||stored;}catch(_){}
+setLanguage(stored);
+$('#lang-switch')?.addEventListener('click',()=>setLanguage(locale==='id'?'en':'id'));
+if($('#current-year'))$('#current-year').textContent=String(new Date().getFullYear());
+const grid=$('#projects-grid');if(grid){document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>setFilter(b.dataset.filter)));setFilter('all');
+grid.addEventListener('click',e=>{const b=e.target.closest('[data-project]');if(!b)return;const d=$('#case-dialog');if(!d)return;d.dataset.project=b.dataset.project;fillCaseStudy(b.dataset.project);d.showModal();});}
+const d=$('#case-dialog');if(d){$('#dialog-close')?.addEventListener('click',closeDialog);$('#dialog-done')?.addEventListener('click',closeDialog);d.addEventListener('click',e=>{if(e.target===d)closeDialog();});}
+$('#copy-email')?.addEventListener('click',copyEmail);
 });

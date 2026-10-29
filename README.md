@@ -41,3 +41,7 @@ The public portfolio highlights eight reviewed training/certificate items. The o
 - Coursera links use the issued individual-course verification codes. DataCamp and Dicoding open certificate PDFs; Dicoding 2023 certificates are marked expired in February 2026.
 - TVRI, LAN, IHT and Telkom sensitive identifiers use redacted public copies; original NIP/NIM and the CPNS QR remain outside this website.
 - Bangkit acceptance letter, OJK placement letter, training grades, internal documents and class notes are not misrepresented as certificates.
+
+
+## Multi-page portfolio
+Dedicated pages: index.html, about.html, projects.html, experience.html, services.html, certifications.html, contact.html, resume.html. Existing project and certificate datasets remain unchanged. `site-shell.js` adds navigation, mobile menu, audience selector, and contact mailto draft. `multipage.css` provides common responsive layouts. Add projects in `data/projects.js`.
