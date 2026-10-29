@@ -178,7 +178,7 @@ window.PORTFOLIO_PROJECTS = [
       "Bootstrap",
       "JavaScript"
     ],
-    "image": "",
+    "image": "assets/evidence/tvri_reports_redacted.webp",
     "demoUrl": "",
     "githubUrl": "",
     "featured": true,
@@ -190,6 +190,52 @@ window.PORTFOLIO_PROJECTS = [
       "id": "Fitur: logbook, downtime DVB-T2, laporan gangguan, rekap, kontrol peran, dan audit trail. Screenshot serta data operasional internal tidak dipublikasikan.",
       "en": "Features: logbooks, DVB-T2 downtime, incident reports, summaries, role controls, and audit trails. Internal screenshots and operational data are not published."
     },
-    "caseUrl": "case-transmission.html"
+    "caseUrl": "case-transmission.html",
+    "evidenceMedia": [
+      {
+        "src": "assets/evidence/tvri_logbook_redacted.webp",
+        "title": {
+          "id": "Formulir Logbook Siaran",
+          "en": "Broadcast logbook form"
+        },
+        "description": {
+          "id": "Cuplikan asli; nama dan identitas disamarkan.",
+          "en": "Original application view; names and identifiers redacted."
+        }
+      },
+      {
+        "src": "assets/evidence/tvri_reports_redacted.webp",
+        "title": {
+          "id": "Rekap dan Ekspor Laporan",
+          "en": "Report overview and export"
+        },
+        "description": {
+          "id": "Fitur daftar laporan, filter, dan ekspor. Detail laporan disamarkan.",
+          "en": "Reports, filters, and export. Record details redacted."
+        }
+      },
+      {
+        "src": "assets/evidence/tvri_audit_redacted.webp",
+        "title": {
+          "id": "Riwayat Perubahan Data",
+          "en": "Audit trail"
+        },
+        "description": {
+          "id": "Cuplikan audit trail dengan identitas dan log disamarkan.",
+          "en": "Audit trail with identities and log details redacted."
+        }
+      },
+      {
+        "src": "assets/evidence/tvri_login_redacted.webp",
+        "title": {
+          "id": "Tampilan Login Aplikasi",
+          "en": "Application login page"
+        },
+        "description": {
+          "id": "Halaman login dari dokumentasi aplikasi tahun 2025.",
+          "en": "Login page as documented in 2025."
+        }
+      }
+    ]
   }
 ];

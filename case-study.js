@@ -22,7 +22,7 @@ if(!grid||!empty||!count)return;
 const images=(project.evidenceMedia||[]).filter(item=>/^assets\/evidence\/[a-z0-9_-]+\.webp$/i.test(item.src));
 if(grid.dataset.staticGallery==="true"){
 count.textContent=images.length+" / "+images.length;empty.hidden=true;
-grid.querySelectorAll("figure").forEach((figure,i)=>{const item=images[i];if(!item)return;const title=item.title?.[lang]||item.title?.id||"Screenshot",description=item.description?.[lang]||item.description?.id||"";const img=figure.querySelector("img");if(img)img.alt=title+" — "+description;const head=figure.querySelector("figcaption strong");if(head)head.textContent=title;const desc=figure.querySelector("figcaption p");if(desc)desc.textContent=description;const label=figure.querySelector(".evidence-real-badge");if(label)label.textContent=lang==="en"?"ORIGINAL SCREENSHOT ↗":"SCREENSHOT ASLI ↗";});
+grid.querySelectorAll("figure").forEach((figure,i)=>{const item=images[i];if(!item)return;const title=item.title?.[lang]||item.title?.id||"Screenshot",description=item.description?.[lang]||item.description?.id||"";const img=figure.querySelector("img");if(img)img.alt=title+" — "+description;const head=figure.querySelector("figcaption strong");if(head)head.textContent=title;const desc=figure.querySelector("figcaption p");if(desc)desc.textContent=description;const label=figure.querySelector(".evidence-real-badge");if(label)label.textContent=key==="transmission"?(lang==="en"?"ORIGINAL IMAGE · REDACTED ↗":"CUPLIKAN ASLI · DATA DISAMARKAN ↗"):(lang==="en"?"ORIGINAL SCREENSHOT ↗":"SCREENSHOT ASLI ↗");});
 return;
 }
 grid.replaceChildren();let loaded=0;
@@ -36,7 +36,7 @@ img.addEventListener("error",()=>{figure.remove();});img.src=item.src;
 a.append(img);figure.append(a);
 const cap=document.createElement("figcaption");const strong=document.createElement("strong");strong.textContent=item.title?.[lang]||item.title?.id||"Evidence";
 const detail=document.createElement("p");detail.textContent=item.description?.[lang]||item.description?.id||"";
-const label=document.createElement("span");label.className="evidence-real-badge";label.textContent=lang==="en"?"ORIGINAL SCREENSHOT ↗":"SCREENSHOT ASLI ↗";
+const label=document.createElement("span");label.className="evidence-real-badge";label.textContent=key==="transmission"?(lang==="en"?"ORIGINAL IMAGE · REDACTED ↗":"CUPLIKAN ASLI · DATA DISAMARKAN ↗"):(lang==="en"?"ORIGINAL SCREENSHOT ↗":"SCREENSHOT ASLI ↗");
 cap.append(strong,detail,label);figure.append(cap);grid.append(figure);
 });
 }
