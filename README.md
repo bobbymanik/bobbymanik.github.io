@@ -91,3 +91,9 @@ Concrete resume-first positioning, bilingual copy, verified GPA and TVRI experie
 - Sitemap refresh includes lastmod values; robots.txt already declares its location.
 - Resume project names link to their corresponding published case studies.
 - See `SEO_CHECKLIST.md` for manual search-console and social-sharing checks.
+
+## Browser smoke testing
+- GitHub Actions workflow `.github/workflows/portfolio-smoke.yml` runs on relevant pushes and through manual workflow dispatch.
+- `tests/portfolio-smoke.mjs` uses Playwright Chromium against the deployed GitHub Pages website at desktop/mobile sizes; checks 11 page loads, images, navigation, language switch, projects, certificate count, form, and resume links.
+- The published site and Actions execution are separate. A successful code commit does not imply a successful smoke test; check the workflow result.
+- Public resume note links to currently available certificate copies, without claiming original private records are public.

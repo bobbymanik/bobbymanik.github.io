@@ -1,0 +1,151 @@
+/**
+ * Browser smoke tests for the public portfolio.
+ * Runs from GitHub Actions after pushes, with no credentials or external user data.
+ * An independent live check cannot be replaced by static code inspection.
+ */
+import assert from 'node:assert/strict';
+import { chromium } from 'playwright';
+
+const base = process.env.SITE_URL || 'https://bobbymanik.github.io/';
+const pages = [
+  '','about.html','projects.html','experience.html','services.html',
+  'certifications.html','contact.html','resume.html',
+  'case-feedback.html','case-orders.html','case-transmission.html'
+];
+const failures = [];
+const browser = await chromium.launch({ headless: true });
+const label = path => path || 'Home';
+const log = (name, success, error) => {
+  process.stdout.write((success ? 'PASS ' : 'FAIL ') + name + (error ? ': ' + error : '') + '\n');
+};
+async function check(name, work) {
+  try { await work(); log(name, true); }
+  catch (err) { failures.push({ name, error: String(err) }); log(name, false, String(err)); }
+}
+async function load(page, path) {
+  let last;
+  for (let n = 1; n <= 3; n++) {
+    try {
+      const res = await page.goto(new URL(path, base).href, { waitUntil: 'domcontentloaded', timeout: 25000 });
+      assert(res && res.status() < 400, 'HTTP status ' + (res?.status() ?? 'missing'));
+      await page.waitForTimeout(250);
+      return;
+    } catch (e) {
+      last = e;
+      if (n < 3) await page.waitForTimeout(1500);
+    }
+  }
+  throw last;
+}
+async function checkImage(page, selector) {
+  const nodes = page.locator(selector);
+  const count = Math.min(await nodes.count(), 6);
+  for (let i = 0; i < count; i++) {
+    const image = nodes.nth(i);
+    await image.scrollIntoViewIfNeeded();
+    await image.evaluate(img => {
+      if (img.complete) return;
+      return new Promise(resolve => {
+        img.addEventListener('load', resolve, { once: true });
+        img.addEventListener('error', resolve, { once: true });
+        setTimeout(resolve, 10000);
+      });
+    });
+    const details = await image.evaluate(img => ({ src: img.getAttribute('src'), naturalWidth: img.naturalWidth }));
+    assert(details.naturalWidth > 0, 'Image did not load: ' + details.src);
+  }
+}
+for (const [viewportName, viewport] of Object.entries({
+  desktop: { width: 1365, height: 900 },
+  mobile: { width: 390, height: 844, isMobile: true, hasTouch: true }
+})) {
+  const context = await browser.newContext({ viewport });
+  const page = await context.newPage();
+  for (const path of pages) {
+    await check(viewportName + ' / ' + label(path), async () => {
+      const exceptions = [];
+      const onError = err => exceptions.push(err.message);
+      page.on('pageerror', onError);
+      try {
+        await load(page, path);
+        assert((await page.locator('h1').count()) === 1, 'Exactly one H1 is expected');
+        assert((await page.title()).trim().length > 8, 'Page title missing');
+        const meta = await page.locator('meta[name="description"]').getAttribute('content');
+        assert(meta && meta.length > 40, 'Page description missing');
+        const viewportError = await page.evaluate(() => {
+          const main = document.querySelector('main');
+          return main && main.getBoundingClientRect().right > window.innerWidth + 6;
+        });
+        assert(!viewportError, 'Main content extends beyond the viewport');
+        const ids = await page.locator('[id]').evaluateAll(nodes => nodes.map(n => n.id));
+        assert(ids.length === new Set(ids).size, 'Duplicate HTML IDs');
+        await checkImage(page, 'main img[src*="assets/evidence/"]');
+        assert(exceptions.length === 0, 'Uncaught JavaScript error: ' + exceptions.join('; '));
+      } finally { page.off('pageerror', onError); }
+    });
+  }
+  if (viewportName === 'mobile') {
+    await check('mobile / navigation menu', async () => {
+      await load(page, '');
+      const toggle = page.locator('.menu-toggle');
+      assert(await toggle.isVisible(), 'Mobile menu trigger hidden');
+      await toggle.click();
+      assert(await page.locator('#nav-links').isVisible(), 'Mobile navigation did not open');
+      await page.locator('#nav-links a[href="contact.html"]').click();
+      assert(page.url().includes('/contact.html'), 'Contact navigation failed');
+    });
+  }
+  await context.close();
+}
+const context = await browser.newContext({ viewport: { width: 1280, height: 800 }, permissions: ['clipboard-read', 'clipboard-write'] });
+const page = await context.newPage();
+await check('About / Indonesian and English switch', async () => {
+  await load(page, 'about.html');
+  await page.evaluate(() => { try { localStorage.removeItem('portfolioLocale'); } catch {} });
+  await load(page, 'about.html');
+  const button = page.locator('#lang-switch');
+  const before = await page.locator('[data-pagetitle="ABOUT"]').innerText();
+  await button.click();
+  await page.waitForTimeout(200);
+  const after = await page.locator('[data-pagetitle="ABOUT"]').innerText();
+  assert(before !== after, 'Language switch did not translate About heading');
+  await button.click();
+  await page.waitForTimeout(200);
+  const restored = await page.locator('[data-pagetitle="ABOUT"]').innerText();
+  assert.equal(restored, before, 'Switching back failed');
+});
+await check('Projects / filter and case links', async () => {
+  await load(page, 'projects.html');
+  const webFilter = page.locator('[data-filter="web"]').first();
+  await webFilter.click();
+  const visibleCards = await page.locator('.project-card:visible').count();
+  assert.equal(visibleCards, 1, 'Expected exactly one web project');
+  assert(await page.locator('a[href="case-transmission.html"]').count() > 0, 'Transmission case study link missing');
+});
+await check('Certificates / all entries', async () => {
+  await load(page, 'certifications.html');
+  await page.waitForTimeout(500);
+  assert.equal(await page.locator('#cert-grid .catalog-card').count(), 42, 'Certificate count mismatch');
+});
+await check('Contact / prefill and clipboard', async () => {
+  await load(page, 'contact.html?topic=freelance&service=automation#inquiry');
+  assert.equal(await page.locator('#professional-inquiry [name="service"]').inputValue(), 'automation');
+  await page.locator('#professional-inquiry [name="name"]').fill('Portfolio test visitor');
+  await page.locator('#professional-inquiry [name="email"]').fill('visitor@example.com');
+  await page.locator('#professional-inquiry [name="message"]').fill('Test inquiry to validate the portfolio contact form.');
+  await page.locator('#copy-inquiry').click();
+  await page.waitForTimeout(250);
+  const confirmation = (await page.locator('#inquiry-status').innerText()).trim();
+  assert(confirmation.length > 0, 'Copy action gave no feedback');
+});
+await check('Resume / project evidence links and education consistency', async () => {
+  await load(page, 'resume.html');
+  assert.equal(await page.locator('a.case-resume-link').count(), 3, 'Resume should link to three case studies');
+  const text = await page.locator('main').innerText();
+  assert(text.includes('3.82 / 4.00'), 'Resume GPA missing');
+  assert(text.includes('May 2025'), 'TVRI start date missing');
+});
+await context.close();
+await browser.close();
+process.stdout.write('\nTotal failures: ' + failures.length + '\n');
+if (failures.length) process.exitCode = 1;

@@ -1,0 +1,34 @@
+name: Portfolio browser smoke tests
+on:
+  push:
+    branches: [main]
+    paths:
+      - '**.html'
+      - '**.css'
+      - '**.js'
+      - 'assets/evidence/**'
+      - 'tests/**'
+      - '.github/workflows/portfolio-smoke.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  browser-check:
+    name: Check desktop and mobile portfolio
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install browser test dependency
+        run: |
+          npm install --no-save --no-audit --no-fund playwright@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Browser smoke test against GitHub Pages
+        run: node tests/portfolio-smoke.mjs
+        env:
+          SITE_URL: https://bobbymanik.github.io/
