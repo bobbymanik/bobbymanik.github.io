@@ -55,6 +55,70 @@ const translations = {
   }
 };
 
+const portfolioRecruitmentCopy = {
+  id:{
+    navServices:"Layanan",heroEyebrow:"AUTOMATION · WEB DEVELOPMENT · IT OPERATIONS",
+    heroTitle:'Saya membangun <span class="gradient-text">workflow automation & aplikasi web</span> yang praktis.',
+    heroDescription:"Lulusan Teknologi Informasi dengan pengalaman operasional teknis, pengembangan web, dan workflow Make.com. Fokus pada validasi data, pelaporan, dan proses kerja yang lebih tertata.",
+    viewProjects:"Lihat studi kasus",talkProject:"Hubungi saya",viewResume:"Lihat resume (EN)",
+    availabilityText:"Terbuka untuk diskusi peluang remote & proyek freelance",
+    heroFocus:"Fokus: Otomasi, Web & IT Operations",
+    aboutP1:"Saya lulusan Teknologi Informasi Universitas Sumatera Utara dan bekerja di bidang transmisi siaran TVRI Riau. Sebelumnya, saya menjalani magang di Telkom Indonesia dan OJK.",
+    aboutP2:"Saya tertarik membangun solusi yang mengurangi pekerjaan berulang, memperbaiki pencatatan, dan mempermudah pelaporan. Proyek saya mencakup otomasi Make.com dan aplikasi internal PHP/MySQL.",
+    downloadCv:"Lihat resume ringkas (EN)",
+    projectsSubtitle:"Studi kasus berbasis proyek nyata, prototipe teruji, dan demo. Setiap status proyek ditampilkan secara transparan.",
+    servicesLabel:"YANG BISA SAYA BANTU",servicesTitle:'Solusi kecil yang <span class="muted-heading">membuat pekerjaan lebih rapi.</span>',
+    servicesSubtitle:"Ruang lingkup yang sesuai dengan proyek dan tools yang sudah saya gunakan. Kebutuhan akan dibahas dan disepakati sebelum mulai.",
+    service1Title:"Otomasi Alur Kerja",service1Desc:"Menghubungkan form, spreadsheet, email, dan Make.com untuk validasi data, notifikasi, serta pencatatan otomatis.",
+    service1Output:"Output: workflow, pengujian, dan panduan penggunaan.",
+    service2Title:"Pelaporan & Pengolahan Data",service2Desc:"Merapikan struktur input dan menyusun rekap operasional di Google Sheets atau Excel agar mudah ditinjau.",
+    service2Output:"Output: format data, rekap, dan dokumentasi.",
+    service3Title:"Website & Aplikasi Internal",service3Desc:"Mengembangkan fitur berbasis PHP/MySQL seperti formulir, pencatatan, kontrol akses pengguna, dan laporan.",
+    service3Output:"Output: aplikasi, pengujian fitur, dan catatan teknis.",servicesCTA:"Ceritakan kebutuhan proyek Anda",
+    opportunitiesLabel:"REMOTE & FREELANCE",opportunitiesKicker:"CARA SAYA BISA BERKONTRIBUSI",
+    opportunitiesTitle:'Untuk tim yang mencari <span class="muted-heading">orang yang teliti dan teknis.</span>',
+    opportunitiesIntro:"Saya tertarik mengeksplorasi kesempatan remote maupun proyek freelance yang sesuai dengan keterampilan dan komitmen pekerjaan saya saat ini.",
+    opportunity1Title:"Untuk rekruter & tim remote",opportunity1Copy:"Bidang relevan: Junior Web Developer, Workflow Automation, IT Operations, dan Technical Support. Saya terbiasa dengan troubleshooting, laporan, serta dokumentasi teknis.",
+    opportunity1Action:"Baca resume (English) ↗",opportunity2Title:"Untuk bisnis & klien freelance",
+    opportunity2Copy:"Mulai dari kebutuhan kecil yang jelas: otomasi pesanan, notifikasi email, pencatatan data, atau alat pelaporan sederhana. Lingkup dan hasil kerja dibahas sebelum mulai.",
+    opportunity2Action:"Diskusikan kebutuhan ↗",
+    contactSubtitle:"Untuk HR, tim remote, atau calon klien: kirim gambaran peran atau tantangan yang ingin diselesaikan. Saya akan meninjau kecocokan dan ketersediaan.",
+    caseRoleLabel:"Kontribusi saya",caseEvidenceLabel:"Bukti yang tersedia"
+  },
+  en:{
+    navServices:"Services",heroEyebrow:"AUTOMATION · WEB DEVELOPMENT · IT OPERATIONS",
+    heroTitle:'Building <span class="gradient-text">workflow automations & web apps</span> for practical problems.',
+    heroDescription:"Information Technology graduate with hands-on experience in technical operations, PHP/MySQL web development, and Make.com workflows. Focused on data validation, reporting, and reliable processes.",
+    viewProjects:"Explore case studies",talkProject:"Get in touch",viewResume:"View resume (EN)",
+    availabilityText:"Open to discussing remote opportunities & freelance projects",
+    heroFocus:"Focus: Automation, Web & IT Operations",
+    aboutP1:"I graduated in Information Technology from Universitas Sumatera Utara and currently work in broadcast transmission operations at TVRI Riau. I previously interned at Telkom Indonesia and OJK.",
+    aboutP2:"I enjoy building solutions that reduce repetitive work, improve records, and simplify reporting. My portfolio includes Make.com automation prototypes and PHP/MySQL internal applications.",
+    downloadCv:"View concise resume (EN)",
+    projectsSubtitle:"Case studies from real projects, tested prototypes, and demos. Each project's status is presented transparently.",
+    servicesLabel:"HOW I CAN HELP",servicesTitle:'Practical tools for <span class="muted-heading">clearer, smoother workflows.</span>',
+    servicesSubtitle:"Areas grounded in tools and projects I've worked with. Scope and deliverables are discussed and agreed upon before starting.",
+    service1Title:"Workflow Automation",service1Desc:"Connect forms, spreadsheets, email, and Make.com for input validation, notifications, and automated logging.",
+    service1Output:"Deliverables: workflow, tests, and usage notes.",
+    service2Title:"Reporting & Data Organization",service2Desc:"Structure inputs and build operational summaries in Google Sheets or Excel for easier review.",
+    service2Output:"Deliverables: data templates, summaries, and documentation.",
+    service3Title:"Internal Web Applications",service3Desc:"Develop PHP/MySQL features such as forms, record management, role-based access, and reporting.",
+    service3Output:"Deliverables: working features, tests, and technical notes.",
+    servicesCTA:"Tell me about your project",
+    opportunitiesLabel:"REMOTE & FREELANCE",opportunitiesKicker:"WHERE I CAN CONTRIBUTE",
+    opportunitiesTitle:'For teams that value <span class="muted-heading">careful, practical technical work.</span>',
+    opportunitiesIntro:"I'm interested in exploring remote roles and freelance projects aligned with my skills and existing professional commitments.",
+    opportunity1Title:"For recruiters & remote teams",opportunity1Copy:"Relevant roles: Junior Web Developer, Workflow Automation, IT Operations, and Technical Support. My background includes troubleshooting, structured reporting, and technical documentation.",
+    opportunity1Action:"Read my English resume ↗",opportunity2Title:"For businesses & freelance clients",
+    opportunity2Copy:"A clear, manageable starting scope: order automation, email alerts, organized data capture, or simple reporting tools. We agree on deliverables before starting.",
+    opportunity2Action:"Discuss a project ↗",
+    contactSubtitle:"Recruiter, remote team, or potential client? Send a brief description of the role or problem. I'll review fit and availability.",
+    caseRoleLabel:"My contribution",caseEvidenceLabel:"Evidence available"
+  }
+};
+Object.assign(translations.id,portfolioRecruitmentCopy.id);
+Object.assign(translations.en,portfolioRecruitmentCopy.en);
+
 const caseStudies = {
   feedback: {
     id:{kicker:"AUTOMATION / 2026 / DEMO",title:"AI Customer Feedback Analyzer",summary:"Demo yang memperlihatkan bagaimana masukan pelanggan bisa dikumpulkan secara terstruktur lalu diteruskan ke alur pengelolaan hasil analisis.",challenge:"Umpan balik pelanggan sering tersebar dan memerlukan rekap manual sebelum dapat ditindaklanjuti.",solution:"Merancang alur dari Google Forms ke Make.com dan Google Sheets; menyiapkan tampilan, pengujian, dan demonstrasi workflow untuk calon klien.",outcome:"Tahap demo: alur dan hasil uji telah disiapkan. Belum diklaim sebagai sistem produksi klien."},
@@ -102,6 +166,8 @@ function fillCaseStudy(projectId){
   $('#case-challenge').textContent = localized(item.challenge);
   $('#case-solution').textContent = localized(item.solution);
   $('#case-outcome').textContent = localized(item.outcome);
+  $('#case-role').textContent = localized(item.role) || (locale === 'en' ? 'Design and implementation' : 'Perancangan dan implementasi');
+  $('#case-evidence').textContent = localized(item.evidence) || (locale === 'en' ? 'Case study documentation' : 'Dokumentasi studi kasus');
   const links = $('#case-links'); links.replaceChildren();
   [{value:item.demoUrl, label:locale==='en'?'Open demo ↗':'Buka demo ↗'}, {value:item.githubUrl,label:'GitHub ↗'}].forEach(link=>{
     const url = safeUrl(link.value);
@@ -177,7 +243,8 @@ async function copyEmail(){
 }
 
 document.addEventListener('DOMContentLoaded',()=>{
-  let stored='id';try{stored=localStorage.getItem('portfolioLocale')||'id';}catch(_){}
+  let stored = /^en\b/i.test(navigator.language || '') ? 'en' : 'id';
+  try { stored = localStorage.getItem('portfolioLocale') || stored; } catch (_) {}
   setLanguage(stored);
   $('#current-year').textContent=String(new Date().getFullYear());
   $('#lang-switch').addEventListener('click',()=>setLanguage(locale==='id'?'en':'id'));

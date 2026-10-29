@@ -1,4 +1,4 @@
-/* Data proyek portofolio. Diperbarui melalui editor-project.html. */
+/* Portfolio project data. Edit via GitHub or a local project editor. */
 window.PORTFOLIO_PROJECTS = [
   {
     "id": "feedback",
@@ -25,8 +25,8 @@ window.PORTFOLIO_PROJECTS = [
       "en": "Built a form-to-Make.com-to-Sheets workflow; prepared a demo walkthrough and test evidence."
     },
     "outcome": {
-      "id": "Demo telah disiapkan dan diuji. Belum menjadi implementasi produksi pelanggan.",
-      "en": "Demo prepared and tested. Not deployed as a client production system."
+      "id": "Demo disimulasikan dan diuji. Belum digunakan pada sistem produksi atau klien berbayar.",
+      "en": "Demo walkthrough and testing completed. Not presented as a client production system or paid engagement."
     },
     "technologies": [
       "Make.com",
@@ -36,7 +36,15 @@ window.PORTFOLIO_PROJECTS = [
     "image": "",
     "demoUrl": "",
     "githubUrl": "",
-    "featured": true
+    "featured": true,
+    "role": {
+      "id": "Merancang form pengumpulan masukan, alur Make.com, struktur rekap Sheets, dan simulasi demo.",
+      "en": "Designed the feedback form, Make.com workflow, Sheets summary structure, and demo walkthrough."
+    },
+    "evidence": {
+      "id": "Tersedia tampilan Google Forms, workflow Make.com, rekap Google Sheets, dan riwayat pengujian sukses. Materi belum dibagikan sebagai tautan publik.",
+      "en": "Google Forms screens, Make.com workflow, Google Sheets output, and successful test history. Evidence is not yet linked publicly."
+    }
   },
   {
     "id": "orders",
@@ -63,8 +71,8 @@ window.PORTFOLIO_PROJECTS = [
       "en": "Connected Google Forms → Google Sheets → Make.com → Gmail with validation filters and a fallback invalid-data log."
     },
     "outcome": {
-      "id": "Pengujian input valid dan tidak valid berhasil melewati rute yang sesuai.",
-      "en": "Valid and invalid test inputs were routed successfully."
+      "id": "Prototipe berfungsi sesuai skenario pengujian lokal Make.com; belum diklaim sebagai implementasi produksi pelanggan.",
+      "en": "Prototype behaved as expected in Make.com tests; not claimed as a client production deployment."
     },
     "technologies": [
       "Make.com",
@@ -74,7 +82,15 @@ window.PORTFOLIO_PROJECTS = [
     "image": "",
     "demoUrl": "",
     "githubUrl": "",
-    "featured": true
+    "featured": true,
+    "role": {
+      "id": "Mengonfigurasi trigger Sheets, validasi input, filter/router, Gmail, dan log fallback.",
+      "en": "Configured Sheets trigger, input checks, filters/router, Gmail delivery, and fallback logging."
+    },
+    "evidence": {
+      "id": "Skenario diuji menggunakan jumlah valid serta contoh 0, negatif, desimal, dan teks. Rute email dan pencatatan input tidak valid berhasil dijalankan.",
+      "en": "Tested with valid quantities and zero, negative, decimal, and text inputs. Email notifications and invalid-order logging executed as intended."
+    }
   },
   {
     "id": "transmission",
@@ -101,8 +117,8 @@ window.PORTFOLIO_PROJECTS = [
       "en": "Developed a PHP/MySQL system with reports, admin/leader/technician roles, and an audit trail."
     },
     "outcome": {
-      "id": "Studi kasus aplikasi internal; akses sistem dan informasi operasional tidak ditampilkan secara publik.",
-      "en": "Internal application case study; access and operational data remain private."
+      "id": "Studi kasus aplikasi internal. Tidak ada klaim angka efisiensi atau akses publik ke data produksi.",
+      "en": "Internal application case study; no unverified efficiency metrics or public access to production data are claimed."
     },
     "technologies": [
       "PHP",
@@ -113,6 +129,14 @@ window.PORTFOLIO_PROJECTS = [
     "image": "",
     "demoUrl": "",
     "githubUrl": "",
-    "featured": true
+    "featured": true,
+    "role": {
+      "id": "Menganalisis kebutuhan pelaporan, merancang database dan hak akses, serta mengembangkan modul PHP/MySQL.",
+      "en": "Analyzed reporting needs, designed the database and access roles, and developed PHP/MySQL modules."
+    },
+    "evidence": {
+      "id": "Fitur: logbook, downtime DVB-T2, laporan gangguan, rekap, kontrol peran, dan audit trail. Screenshot serta data operasional internal tidak dipublikasikan.",
+      "en": "Features: logbooks, DVB-T2 downtime, incident reports, summaries, role controls, and audit trails. Internal screenshots and operational data are not published."
+    }
   }
 ];
