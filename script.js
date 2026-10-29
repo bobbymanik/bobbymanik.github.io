@@ -121,12 +121,15 @@ Object.assign(translations.en,portfolioRecruitmentCopy.en);
 
 const certificateCopy = {
   "id": {
+    "certificateViewPublic": "Lihat salinan sertifikat ↗",
+    "certificateViewDocument": "Lihat sertifikat ↗",
+    "certificateVerify": "Verifikasi sertifikat ↗",
     "navCertifications": "Sertifikasi",
     "certLabel": "SERTIFIKASI & PELATIHAN",
     "certTitle": "Pembelajaran berkelanjutan, <span class=\"muted-heading\">didukung bukti.</span>",
     "certIntro": "Pelatihan terpilih dengan dokumen yang sudah ditinjau. Dokumen sertifikat asli tidak dipublikasikan karena dapat memuat informasi pribadi.",
     "certCourses": "Pelatihan teknis pilihan",
-    "certFootnote": "Entri Google/Coursera merupakan sertifikat penyelesaian kursus individual, bukan klaim bahwa seluruh Professional Certificate atau Specialization telah selesai. Dokumen pendukung dapat ditunjukkan saat diperlukan.",
+    "certFootnote": "Klik tombol pada kartu untuk melihat sertifikat atau halaman verifikasi resmi. Salinan TVRI/LAN telah disamarkan pada bagian identitas sensitif. Kursus Google/Coursera mewakili penyelesaian kursus individual, bukan keseluruhan program spesialisasi.",
     "certDescription0": "Lulus dengan predikat Memuaskan · 40 JP · 2–13 Maret 2026. Peralatan transmisi, aliran sinyal, operasional dan troubleshooting.",
     "certName0": "Diklat Dasar Transmisi Digital",
     "certStatus0": "LULUS · MEMUASKAN",
@@ -141,12 +144,15 @@ const certificateCopy = {
     "certDescription7": "Dasar statistik dan analisis dengan Python."
   },
   "en": {
+    "certificateViewPublic": "View redacted certificate ↗",
+    "certificateViewDocument": "View certificate ↗",
+    "certificateVerify": "Verify certificate ↗",
     "navCertifications": "Certifications",
     "certLabel": "CERTIFICATES & TRAINING",
     "certTitle": "Continuous learning, <span class=\"muted-heading\">backed by evidence.</span>",
     "certIntro": "Selected completed training with documents reviewed. Original certificates are not published because they can include personal information.",
     "certCourses": "Selected technical courses",
-    "certFootnote": "Google/Coursera entries represent completed individual courses, not claims of finishing entire Professional Certificate or Specialization programs. Supporting documents can be shared selectively.",
+    "certFootnote": "Use the links on each card to view a certificate or official verification page. TVRI/LAN public copies have sensitive identity details redacted. Google/Coursera certificates refer to individual completed courses, not entire specializations.",
     "certDescription0": "Passed (Satisfactory) · 40 training hours · March 2–13, 2026. Transmission equipment, signal flow, operations and troubleshooting.",
     "certName0": "Digital Transmission Fundamentals",
     "certStatus0": "PASSED · SATISFACTORY",

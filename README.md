@@ -28,3 +28,9 @@ The public `resume.html` reflects the most recent uploaded CV: GPA 3.82/4.00, ed
 
 ## Certificate summaries (October 2026)
 The public portfolio highlights eight reviewed training/certificate items. The original PDFs were deliberately not committed because TVRI and LAN certificates contain NIP, birth details, and other identifying information. Coursera courses are listed individually, not as completed professional certificate programs. Some Dicoding course certificates expired in February 2026 and are not presented as active. Bangkit folder has an acceptance letter rather than graduation proof. IHT Risk Management scan was unreadable as text, so its details are not treated as verified here.
+
+## Public certificate viewing links (October 2026)
+- Two public redacted certificate copies have been uploaded to Google Drive with anyone-with-link reader access; sensitive personal identifiers and the CPNS QR code were removed from the rasterized public editions.
+- Coursera course links point to verification pages printed on the actual completion certificates.
+- DataCamp certificate opens an existing public Google Drive document.
+- Original TVRI/LAN certificates remain in the user's Drive and are **not** linked from the public portfolio.
