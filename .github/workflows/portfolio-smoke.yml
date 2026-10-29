@@ -13,6 +13,7 @@ on:
 
 permissions:
   contents: read
+  actions: read
 
 jobs:
   browser-check:
@@ -24,6 +25,29 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '22'
+      - name: Wait for matching GitHub Pages deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPOSITORY: ${{ github.repository }}
+          REVISION: ${{ github.sha }}
+        shell: bash
+        run: |
+          echo "Waiting for GitHub Pages to deploy commit $REVISION"
+          for attempt in $(seq 1 60); do
+            state="$(gh api "repos/$REPOSITORY/actions/runs?head_sha=$REVISION&per_page=30" --jq '[.workflow_runs[] | select(.name == "pages build and deployment")][0] | if . == null then "pending" else (.status + ":" + (.conclusion // "pending")) end')"
+            echo "Pages status: $state (check $attempt/60)"
+            if [[ "$state" == "completed:success" ]]; then
+              echo "Matching deployment succeeded."
+              exit 0
+            fi
+            if [[ "$state" == completed:* ]]; then
+              echo "Matching deployment failed: $state" >&2
+              exit 1
+            fi
+            sleep 6
+          done
+          echo "Timed out waiting for the matching Pages deployment" >&2
+          exit 1
       - name: Install browser test dependency
         run: |
           npm install --no-save --no-audit --no-fund playwright@1.56.1
