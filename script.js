@@ -119,6 +119,51 @@ const portfolioRecruitmentCopy = {
 Object.assign(translations.id,portfolioRecruitmentCopy.id);
 Object.assign(translations.en,portfolioRecruitmentCopy.en);
 
+const certificateCopy = {
+  "id": {
+    "navCertifications": "Sertifikasi",
+    "certLabel": "SERTIFIKASI & PELATIHAN",
+    "certTitle": "Pembelajaran berkelanjutan, <span class=\"muted-heading\">didukung bukti.</span>",
+    "certIntro": "Pelatihan terpilih dengan dokumen yang sudah ditinjau. Dokumen sertifikat asli tidak dipublikasikan karena dapat memuat informasi pribadi.",
+    "certCourses": "Pelatihan teknis pilihan",
+    "certFootnote": "Entri Google/Coursera merupakan sertifikat penyelesaian kursus individual, bukan klaim bahwa seluruh Professional Certificate atau Specialization telah selesai. Dokumen pendukung dapat ditunjukkan saat diperlukan.",
+    "certDescription0": "Lulus dengan predikat Memuaskan · 40 JP · 2–13 Maret 2026. Peralatan transmisi, aliran sinyal, operasional dan troubleshooting.",
+    "certName0": "Diklat Dasar Transmisi Digital",
+    "certStatus0": "LULUS · MEMUASKAN",
+    "certDescription1": "Lulus dengan predikat Memuaskan · 647 JP · 11 Agustus–6 November 2025. Dasar ASN, Smart Governance dan aktualisasi sistem pelaporan.",
+    "certName1": "Pelatihan Dasar CPNS",
+    "certStatus1": "LULUS · MEMUASKAN",
+    "certDescription2": "Investigasi masalah dan debugging sistem.",
+    "certDescription3": "Fondasi pemrograman Python.",
+    "certDescription4": "Kontrol versi dan kolaborasi kode.",
+    "certDescription5": "Analisis data untuk pengambilan keputusan.",
+    "certDescription6": "Pengantar supervised learning dan klasifikasi.",
+    "certDescription7": "Dasar statistik dan analisis dengan Python."
+  },
+  "en": {
+    "navCertifications": "Certifications",
+    "certLabel": "CERTIFICATES & TRAINING",
+    "certTitle": "Continuous learning, <span class=\"muted-heading\">backed by evidence.</span>",
+    "certIntro": "Selected completed training with documents reviewed. Original certificates are not published because they can include personal information.",
+    "certCourses": "Selected technical courses",
+    "certFootnote": "Google/Coursera entries represent completed individual courses, not claims of finishing entire Professional Certificate or Specialization programs. Supporting documents can be shared selectively.",
+    "certDescription0": "Passed (Satisfactory) · 40 training hours · March 2–13, 2026. Transmission equipment, signal flow, operations and troubleshooting.",
+    "certName0": "Digital Transmission Fundamentals",
+    "certStatus0": "PASSED · SATISFACTORY",
+    "certDescription1": "Passed (Satisfactory) · 647 training hours · August 11–November 6, 2025. Civil service fundamentals, Smart Governance and a reporting application project.",
+    "certName1": "Civil Servant Basic Training",
+    "certStatus1": "PASSED · SATISFACTORY",
+    "certDescription2": "System troubleshooting and debugging.",
+    "certDescription3": "Python programming fundamentals.",
+    "certDescription4": "Version control and code collaboration.",
+    "certDescription5": "Data analysis for decision making.",
+    "certDescription6": "Introduction to supervised learning and classification.",
+    "certDescription7": "Foundations of statistics and analysis with Python."
+  }
+};
+Object.assign(translations.id,certificateCopy.id);
+Object.assign(translations.en,certificateCopy.en);
+
 const caseStudies = {
   feedback: {
     id:{kicker:"AUTOMATION / 2026 / DEMO",title:"AI Customer Feedback Analyzer",summary:"Demo yang memperlihatkan bagaimana masukan pelanggan bisa dikumpulkan secara terstruktur lalu diteruskan ke alur pengelolaan hasil analisis.",challenge:"Umpan balik pelanggan sering tersebar dan memerlukan rekap manual sebelum dapat ditindaklanjuti.",solution:"Merancang alur dari Google Forms ke Make.com dan Google Sheets; menyiapkan tampilan, pengujian, dan demonstrasi workflow untuk calon klien.",outcome:"Tahap demo: alur dan hasil uji telah disiapkan. Belum diklaim sebagai sistem produksi klien."},

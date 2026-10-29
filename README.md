@@ -25,3 +25,6 @@ The public resume omits a phone number. Share a full CV directly when relevant. 
 
 ## Latest resume (2026)
 The public `resume.html` reflects the most recent uploaded CV: GPA 3.82/4.00, education Sep 2020-Feb 2026, and transmission operations since May 2025 with unit coordination responsibilities. It omits the private phone number and street address. Training is described without unverified certificate identifiers or links.
+
+## Certificate summaries (October 2026)
+The public portfolio highlights eight reviewed training/certificate items. The original PDFs were deliberately not committed because TVRI and LAN certificates contain NIP, birth details, and other identifying information. Coursera courses are listed individually, not as completed professional certificate programs. Some Dicoding course certificates expired in February 2026 and are not presented as active. Bangkit folder has an acceptance letter rather than graduation proof. IHT Risk Management scan was unreadable as text, so its details are not treated as verified here.
