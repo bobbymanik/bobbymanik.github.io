@@ -1,4 +1,4 @@
-/* Portfolio project data. Edit via GitHub or a local project editor. */
+/* Source-of-truth: projects featured on the public portfolio. Update evidence and URLs only after verification. */
 window.PORTFOLIO_PROJECTS = [
   {
     "id": "feedback",
@@ -44,7 +44,8 @@ window.PORTFOLIO_PROJECTS = [
     "evidence": {
       "id": "Tersedia tampilan Google Forms, workflow Make.com, rekap Google Sheets, dan riwayat pengujian sukses. Materi belum dibagikan sebagai tautan publik.",
       "en": "Google Forms screens, Make.com workflow, Google Sheets output, and successful test history. Evidence is not yet linked publicly."
-    }
+    },
+    "caseUrl": "case-feedback.html"
   },
   {
     "id": "orders",
@@ -90,7 +91,8 @@ window.PORTFOLIO_PROJECTS = [
     "evidence": {
       "id": "Skenario diuji menggunakan jumlah valid serta contoh 0, negatif, desimal, dan teks. Rute email dan pencatatan input tidak valid berhasil dijalankan.",
       "en": "Tested with valid quantities and zero, negative, decimal, and text inputs. Email notifications and invalid-order logging executed as intended."
-    }
+    },
+    "caseUrl": "case-orders.html"
   },
   {
     "id": "transmission",
@@ -137,6 +139,7 @@ window.PORTFOLIO_PROJECTS = [
     "evidence": {
       "id": "Fitur: logbook, downtime DVB-T2, laporan gangguan, rekap, kontrol peran, dan audit trail. Screenshot serta data operasional internal tidak dipublikasikan.",
       "en": "Features: logbooks, DVB-T2 downtime, incident reports, summaries, role controls, and audit trails. Internal screenshots and operational data are not published."
-    }
+    },
+    "caseUrl": "case-transmission.html"
   }
 ];

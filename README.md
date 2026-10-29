@@ -45,3 +45,11 @@ The public portfolio highlights eight reviewed training/certificate items. The o
 
 ## Multi-page portfolio
 Dedicated pages: index.html, about.html, projects.html, experience.html, services.html, certifications.html, contact.html, resume.html. Existing project and certificate datasets remain unchanged. `site-shell.js` adds navigation, mobile menu, audience selector, and contact mailto draft. `multipage.css` provides common responsive layouts. Add projects in `data/projects.js`.
+
+## Detailed case studies (2026)
+- `case-feedback.html`: AI Customer Feedback Analyzer (prospect-facing demo; no invented AI accuracy)
+- `case-orders.html`: Order Notification prototype with a **local-only** input validation simulator; never sends Gmail or updates Sheets.
+- `case-transmission.html`: Internal PHP/MySQL reporting architecture and public-safe role-access explorer.
+- `case-study.js` and `case-study.css`: shared localized visualizations and accessible interactive panels.
+- All diagrams are conceptual reconstructions. Screenshots and business data remain unpublished until reviewed and approved.
+- `data/projects.js` remains the central project source. Each featured project now declares a `caseUrl`; newly added projects without a verified case page retain the existing quick-view modal.

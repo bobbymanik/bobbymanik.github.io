@@ -174,6 +174,8 @@ translations.id.browseAllCertificates="Lihat semua 42 sertifikat";
 translations.en.browseAllCertificates="Browse all 42 certificates";
 
 Object.assign(translations.id,{navIndex:"Beranda",navCertifications:"Sertifikasi"});Object.assign(translations.en,{navIndex:"Home",navCertifications:"Certificates"});
+Object.assign(translations.id,{caseLibraryTitle:"Studi kasus lengkap tersedia",caseLibraryDesc:"Buka setiap halaman proyek untuk melihat alur kerja, pengujian, dan contoh interaktif. Diagram ditandai sebagai ilustrasi konsep."});
+Object.assign(translations.en,{caseLibraryTitle:"Full case studies are available",caseLibraryDesc:"Explore workflow diagrams, test notes and interactive explanations on individual project pages. Diagrams are explicitly conceptual."});
 const caseStudies = {
   feedback: {
     id:{kicker:"AUTOMATION / 2026 / DEMO",title:"AI Customer Feedback Analyzer",summary:"Demo yang memperlihatkan bagaimana masukan pelanggan bisa dikumpulkan secara terstruktur lalu diteruskan ke alur pengelolaan hasil analisis.",challenge:"Umpan balik pelanggan sering tersebar dan memerlukan rekap manual sebelum dapat ditindaklanjuti.",solution:"Merancang alur dari Google Forms ke Make.com dan Google Sheets; menyiapkan tampilan, pengujian, dan demonstrasi workflow untuk calon klien.",outcome:"Tahap demo: alur dan hasil uji telah disiapkan. Belum diklaim sebagai sistem produksi klien."},
@@ -267,7 +269,13 @@ function renderProjects(){
     const btn=document.createElement('button');btn.type='button';btn.className='project-more';btn.dataset.project=project.id;
     const label=document.createElement('span');label.textContent=translations[locale].viewCase;
     const arrow=document.createElement('span');arrow.setAttribute('aria-hidden','true');arrow.textContent='↗';btn.append(label,arrow);
-    content.append(meta,title,description,tags,btn);article.appendChild(content);grid.appendChild(article);
+    content.append(meta,title,description,tags,btn);
+    if(project.caseUrl && /^case-(feedback|orders|transmission)\.html$/.test(project.caseUrl)){
+      const link=document.createElement('a');link.href=project.caseUrl;link.className='case-extra-link';
+      link.textContent=locale==='en'?'Read full case study ↗':'Buka studi kasus lengkap ↗';
+      content.append(link);
+    }
+    article.appendChild(content);grid.appendChild(article);
   });
 }
 
