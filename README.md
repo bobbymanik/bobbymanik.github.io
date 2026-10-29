@@ -82,3 +82,6 @@ The following four **cropped, original** Make.com test screenshots have been com
 - `orders_invalid_route.webp`: invalid order branch showing the filter/fallback path.
 
 The 2 images each are linked on `case-feedback.html` and `case-orders.html` via `data/projects.js`. Files are deliberately cropped to remove run IDs and unneeded personal/technical information. They document tests and demos only—not paid production deployments. Keep the original source screenshots private. Do not publicly upload raw client data, Sheets IDs, or execution IDs.
+
+## Home and About refresh, 2026
+Concrete resume-first positioning, bilingual copy, verified GPA and TVRI experience, evidence-based project previews using authentic redacted screenshots, plus direct navigation to GitHub/LinkedIn, case studies and credentials. No unverified customer metrics are claimed.
