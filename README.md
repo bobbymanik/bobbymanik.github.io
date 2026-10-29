@@ -22,3 +22,6 @@ Use verified demos and real source repository links only; leave URLs empty when 
 
 ## For HR and clients
 The public resume omits a phone number. Share a full CV directly when relevant. Project claims intentionally avoid unverified performance metrics and paid-client claims.
+
+## Latest resume (2026)
+The public `resume.html` reflects the most recent uploaded CV: GPA 3.82/4.00, education Sep 2020-Feb 2026, and transmission operations since May 2025 with unit coordination responsibilities. It omits the private phone number and street address. Training is described without unverified certificate identifiers or links.
