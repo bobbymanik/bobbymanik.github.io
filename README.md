@@ -97,3 +97,8 @@ Concrete resume-first positioning, bilingual copy, verified GPA and TVRI experie
 - `tests/portfolio-smoke.mjs` uses Playwright Chromium against the deployed GitHub Pages website at desktop/mobile sizes; checks 11 page loads, images, navigation, language switch, projects, certificate count, form, and resume links.
 - The published site and Actions execution are separate. A successful code commit does not imply a successful smoke test; check the workflow result.
 - Public resume note links to currently available certificate copies, without claiming original private records are public.
+
+## Search Console and LinkedIn preparation (2026-10-30)
+- `GOOGLE_SEARCH_CONSOLE_SETUP.md`: URL-prefix verification guide and sitemap submission steps (Google account access still required).
+- `LINKEDIN_PROFILE_KIT.md`: recruiter-focused English headline/About, Featured links and skills. LinkedIn profile **has not been edited automatically**.
+- `tests/portfolio-smoke.mjs` now validates robots.txt, sitemap.xml, canonical URLs, OG metadata, JSON-LD and preview images in addition to browser functionality.

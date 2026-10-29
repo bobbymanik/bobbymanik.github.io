@@ -146,6 +146,53 @@ await check('Resume / project evidence links and education consistency', async (
   assert(text.includes('May 2025'), 'TVRI start date missing');
 });
 await context.close();
+
+// Search-readiness checks: these detect indexing obstacles but do not verify Google index status.
+const crawlContext = await browser.newContext({ viewport: { width: 1280, height: 800 } });
+const crawlPage = await crawlContext.newPage();
+await check('SEO / robots.txt and sitemap.xml', async () => {
+  const robotsResponse = await crawlContext.request.get(new URL('robots.txt', base).href);
+  assert.equal(robotsResponse.status(), 200, 'robots.txt should return HTTP 200');
+  const robots = await robotsResponse.text();
+  assert(robots.includes('User-agent: *') && robots.includes('Allow: /'), 'Crawling rules are missing');
+  assert(robots.includes('Sitemap: ' + new URL('sitemap.xml', base).href), 'Sitemap directive is missing');
+  const response = await crawlContext.request.get(new URL('sitemap.xml', base).href);
+  assert.equal(response.status(), 200, 'sitemap.xml should return HTTP 200');
+  const xml = await response.text();
+  assert(xml.includes('xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"'), 'Sitemap namespace missing');
+  const urls = [...xml.matchAll(/<loc>([^<]+)<\/loc>/g)].map(x => x[1]);
+  assert.equal(urls.length, pages.length, 'Sitemap entry count does not match public page list');
+  assert.equal(new Set(urls).size, urls.length, 'Duplicate URLs in sitemap');
+  for (const path of pages) {
+    assert(urls.includes(new URL(path, base).href), 'Missing sitemap URL: ' + path);
+  }
+});
+for (const path of pages) {
+  await check('SEO metadata / ' + label(path), async () => {
+    await load(crawlPage, path);
+    const expected = new URL(path, base).href;
+    const canonical = await crawlPage.locator('link[rel="canonical"]').getAttribute('href');
+    assert.equal(canonical, expected, 'Canonical URL does not match page URL');
+    assert.equal(await crawlPage.locator('meta[property="og:url"]').getAttribute('content'), expected, 'Open Graph URL mismatch');
+    const title = (await crawlPage.locator('meta[property="og:title"]').getAttribute('content'))?.trim();
+    const description = (await crawlPage.locator('meta[property="og:description"]').getAttribute('content'))?.trim();
+    assert(title && title.length > 8, 'Open Graph title missing');
+    assert(description && description.length > 40, 'Open Graph description missing');
+    assert((await crawlPage.locator('meta[name="robots"]').getAttribute('content')).includes('index'), 'Page is noindex');
+    const jsonld = crawlPage.locator('script[type="application/ld+json"]');
+    assert(await jsonld.count() > 0, 'JSON-LD missing');
+    for (const code of await jsonld.allTextContents()) {
+      const parsed = JSON.parse(code);
+      assert(parsed['@context'] === 'https://schema.org', 'JSON-LD context invalid');
+    }
+    const ogImage = await crawlPage.locator('meta[property="og:image"]').getAttribute('content').catch(() => null);
+    if (ogImage) {
+      const imgRes = await crawlContext.request.get(ogImage);
+      assert.equal(imgRes.status(), 200, 'Open Graph image does not load: ' + ogImage);
+    }
+  });
+}
+await crawlContext.close();
 await browser.close();
 process.stdout.write('\nTotal failures: ' + failures.length + '\n');
 if (failures.length) process.exitCode = 1;

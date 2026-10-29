@@ -21,3 +21,8 @@ Website: https://bobbymanik.github.io/
 Structured data improves machine readability but does not guarantee ranking or rich results.
 No testimonials, customers, revenue outcomes or hiring claims were fabricated.
 Do not upload internal TVRI documents or unsanitized screenshots.
+
+## Ready-to-follow onboarding guides
+- [Google Search Console setup](GOOGLE_SEARCH_CONSOLE_SETUP.md)
+- [LinkedIn profile wording and Featured links](LINKEDIN_PROFILE_KIT.md)
+- Ownership verification and sitemap submission need a signed-in Google account. They have **not** been completed by the GitHub commit.
