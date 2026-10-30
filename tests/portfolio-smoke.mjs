@@ -150,6 +150,15 @@ await context.close();
 // Search-readiness checks: these detect indexing obstacles but do not verify Google index status.
 const crawlContext = await browser.newContext({ viewport: { width: 1280, height: 800 } });
 const crawlPage = await crawlContext.newPage();
+await check('Google Search Console / public HTML verification file', async () => {
+  const expected = 'google-site-verification: google3dae974021c11354.html';
+  const verificationPath = 'google3dae974021c11354.html';
+  const url = new URL(verificationPath, base).href;
+  const response = await crawlContext.request.get(url, { timeout: 25000 });
+  assert.equal(response.status(), 200, 'Verification URL must return HTTP 200');
+  const actual = await response.text();
+  assert.equal(actual, expected, 'Published verification file differs from Google original');
+});
 await check('SEO / robots.txt and sitemap.xml', async () => {
   const robotsResponse = await crawlContext.request.get(new URL('robots.txt', base).href);
   assert.equal(robotsResponse.status(), 200, 'robots.txt should return HTTP 200');
